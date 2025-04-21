@@ -15,9 +15,7 @@ class ListadoProductos extends Component
     public function mount()
     {
         $this->resultadoBusqueda = collect();
-        // if($this->producto != ''){
-        //     $this->resultadoBusqueda = Producto::where('codigo', '=', $this -> producto);
-        // }
+
     }
 
     public function updatedProducto()
