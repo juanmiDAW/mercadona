@@ -12,19 +12,20 @@ class ListadoProductos extends Component
     public $resultadoBusqueda;
 
 
-    // public function mount()
-    // {
-    //     if($this->producto != ''){
-    //         $this->resultadoBusqueda = Producto::where('codigo', '=', $this -> producto);
-    //     }
-    // }
+    public function mount()
+    {
+        $this->resultadoBusqueda = collect();
+        // if($this->producto != ''){
+        //     $this->resultadoBusqueda = Producto::where('codigo', '=', $this -> producto);
+        // }
+    }
 
     public function updatedProducto()
     {
         if($this->producto != ''){
             $this->resultadoBusqueda = Producto::where('codigo', 'like', '%'.$this->producto.'%')->get();
         }else{
-            $this->resultadoBusqueda = '';
+            $this->resultadoBusqueda = collect();
         }
     }
     public function render()

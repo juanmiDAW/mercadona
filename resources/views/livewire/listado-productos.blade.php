@@ -14,8 +14,7 @@
                 </thead>
             </tr>
             {{$resultadoBusqueda}}
-            {{$producto}}
-            @if ($resultadoBusqueda != '')
+            {{-- @if (!empty($resultadoBusqueda)) --}}
 
                 @foreach ($resultadoBusqueda as $producto)
                     <tr>
@@ -26,7 +25,7 @@
 
                     </tr>
                 @endforeach
-            @endif
+            {{-- @endif --}}
 
         </table>
     </div>
