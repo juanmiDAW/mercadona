@@ -4,25 +4,33 @@ namespace App\Livewire;
 
 use App\Models\Producto;
 use Livewire\Component;
+use Psy\CodeCleaner\AssignThisVariablePass;
 
 class ListadoProductos extends Component
 {
 
     public $producto;
     public $resultadoBusqueda;
+    public $lista;
 
 
     public function mount()
     {
         $this->resultadoBusqueda = collect();
+        $this->lista = collect();
+    }
 
+    public function anyadir($id) {
+
+        $producto = Producto::where('id', $id)->first();
+        $this->lista->push($producto);
     }
 
     public function updatedProducto()
     {
-        if($this->producto != ''){
-            $this->resultadoBusqueda = Producto::where('codigo', 'like', '%'.$this->producto.'%')->get();
-        }else{
+        if ($this->producto != '') {
+            $this->resultadoBusqueda = Producto::where('codigo', 'like', '%' . $this->producto . '%')->get();
+        } else {
             $this->resultadoBusqueda = collect();
         }
     }
