@@ -26,6 +26,11 @@ class ListadoProductos extends Component
         $this->lista->push($producto);
     }
 
+    public function eliminar($indice){
+        $this->lista->forget($indice);
+        $this->lista = $this->lista->values(); 
+    }
+
     public function updatedProducto()
     {
         if ($this->producto != '') {
