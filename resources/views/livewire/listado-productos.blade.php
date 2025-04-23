@@ -42,6 +42,9 @@
                         <th>Precio unitario</th>
                     </thead>
                 </tr>
+                @php
+                    $subtotal = 0;
+                @endphp
                 @foreach ($lista as $producto)
                     <tr>
                         {{-- @php
@@ -51,15 +54,21 @@
 
                         <td>{{ $producto->denominacion }}</td>
                         <td>{{ $producto->precio }}</td>
+                        @php
+                            $subtotal += $producto->precio;
+                        @endphp
 
 
 
                     </tr>
                 @endforeach
-                {{-- @endif --}}
+            </table>
+            <div class="flex gap-4 m-7">
+                <label for="">Subtotal: </label>
+                <p>{{ $subtotal }} euros</p>
+            </div>
         </div>
 
-        </table>
     </div>
     @livewireScripts
 </div>
