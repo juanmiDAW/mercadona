@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table -> integer('tarjeta') -> unique();
+            $table -> bigInteger('tarjeta') -> unique();
             $table->timestamps();
         });
     }

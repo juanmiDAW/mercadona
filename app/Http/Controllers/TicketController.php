@@ -29,7 +29,9 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        //
+        $validate = $request->validated();
+
+        Ticket::create($validate);
     }
 
     /**
