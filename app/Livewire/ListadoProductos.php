@@ -31,6 +31,11 @@ class ListadoProductos extends Component
         $this->lista = $this->lista->values(); 
     }
 
+    public function anular(){
+        $this->lista = collect();
+        return redirect()->route('inicio');
+    }
+
     public function updatedProducto()
     {
         if ($this->producto != '') {
