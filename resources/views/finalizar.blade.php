@@ -12,9 +12,13 @@
     <div class="flex flex-col justify-center items-center">
         <label for="">Total: </label>
         <p class="m-6">{{ $total }} euros</p>
-
+    
+@php
+    dd($lista);
+@endphp
         <form action="{{ route('tickets.store') }}" method="post">
             @csrf
+            <input type="hidden" name="lista" value="{{json_encode($lista)}}">
             <label for="">Número de tarjeta</label>
             <input type="text" name="tarjeta" id="">
             <button type="submit">Enviar</button>

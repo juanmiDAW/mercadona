@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
+use App\Models\Linea;
 use App\Models\Ticket;
 
 class TicketController extends Controller
@@ -31,7 +32,12 @@ class TicketController extends Controller
     {
         $validate = $request->validated();
 
-        Ticket::create($validate);
+        $ticket = Ticket::create($validate);
+        dd($request);
+        // Linea::create([
+        //     'ticket_id' => $ticket->id,
+        //     'producto_id' => $request->producto_id,
+        // ]);
     }
 
     /**

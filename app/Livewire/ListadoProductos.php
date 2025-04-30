@@ -44,6 +44,11 @@ class ListadoProductos extends Component
             $this->resultadoBusqueda = collect();
         }
     }
+
+    public function guardarSesion(){
+        session(['lista' => $this->lista]);
+    }
+
     public function render()
     {
         return view('livewire.listado-productos');
