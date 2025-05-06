@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Models\Linea;
 use App\Models\Producto;
+use App\Models\Ticket;
 use Livewire\Component;
 use Psy\CodeCleaner\AssignThisVariablePass;
 
@@ -12,6 +14,8 @@ class ListadoProductos extends Component
     public $producto;
     public $resultadoBusqueda;
     public $lista;
+    public $modal = false;
+    public $tarjeta;
 
 
     public function mount()
@@ -47,6 +51,26 @@ class ListadoProductos extends Component
 
     public function guardarSesion(){
         session(['lista' => $this->lista]);
+    }
+
+    public function mostrarModal(){
+        $this->modal = !$this->modal; 
+    }
+
+    public function anyadirTarjeta(){
+        $validate = $this->validate([
+            'tarjeta' => 'required|numeric|digits:16',
+        ]);
+
+        $this->modal = false;
+
+        $ticket = Ticket::create($validate);
+        foreach ($this->lista as $producto) {
+            Linea::create([
+                'ticket_id' => $ticket->id,
+                'producto_id' => $producto->id,
+            ]);
+        }
     }
 
     public function render()
