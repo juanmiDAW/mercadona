@@ -8,24 +8,10 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800 ">
-    <h2>Ventana de pago</h2>
-    <div class="flex flex-col justify-center items-center">
-        <label for="">Total: </label>
-        <p class="m-6">{{ $total }} euros</p>
-    
-@php
-    dd($lista);
-@endphp
-        <form action="{{ route('tickets.store') }}" method="post">
-            @csrf
-            <input type="hidden" name="lista" value="{{json_encode($lista)}}">
-            <label for="">Número de tarjeta</label>
-            <input type="text" name="tarjeta" id="">
-            <button type="submit">Enviar</button>
-        </form>
+    <div class="flex justify-center items-center h-screen">
+        
+        <a  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-20 py-20 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" href="{{route('inicio')}}">Volver al inicio</a>
     </div>
-
-
 </body>
 
 </html>

@@ -17,8 +17,8 @@ Route::get('/compra', function () {
 
 Route::resource('productos', ProductoController::class);
 
-Route::post('/finalizar', function(Request $request){
-    return view('finalizar',['total' => $request->total]);
+Route::get('/finalizar', function(Request $request){
+    return view('finalizar');
 })->name('finalizar');
 
 Route::resource('tickets', TicketController::class);

@@ -71,6 +71,7 @@ class ListadoProductos extends Component
                 'producto_id' => $producto->id,
             ]);
         }
+        return redirect()->route('finalizar');
     }
 
     public function render()
